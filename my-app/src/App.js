@@ -4,7 +4,7 @@ import cat from './cat.svg';
 import Geocode from "react-geocode";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-Geocode.setApiKey("AIzaSyAGSN1jKfDiCmSuJbO0EdAFrB3NUqdQTJM");
+Geocode.setApiKey("[API_KEY_HERE]");
 
 var lat = 0;
 var lng = 0;
@@ -90,5 +90,5 @@ class AddressForm extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyAGSN1jKfDiCmSuJbO0EdAFrB3NUqdQTJM")
+  apiKey: ("[API_KEY_HERE]")
 })(App)
