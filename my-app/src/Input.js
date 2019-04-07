@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { render } from "react-dom";
 import './App.css';
 
+// read about it sorry if its confusing: https://medium.com/@willhowardgb/building-a-beautiful-text-input-component-in-react-f85564cc7e86
+
 export default class Input extends Component {
 
     static propTypes = {

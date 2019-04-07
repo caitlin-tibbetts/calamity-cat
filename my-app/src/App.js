@@ -12,6 +12,24 @@ class App extends Component {
     console.log('this is:', this);
   }
 
+  state = {
+    markers: [
+      {
+        name: "Current position",
+        position: {
+          lat: 37.77,
+          lng: -122.42
+        }
+      }
+    ]
+  };
+
+  onMarkerDragEnd = (one, two, three) => { 
+    const { latLng } = three; 
+    const lat = latLng.lat(); 
+    const lng = latLng.lng(); 
+    console.log(lat); };
+
   render() {
     return (
       <div className="App">
@@ -23,7 +41,7 @@ class App extends Component {
           <h2 className="App-subheader">
             avoid cat-tastrophe
           </h2>
-          <Input/>
+          <Input />
           <button className="button" onClick={this.handleClick}>
             <h1 className="button-text">GENERATE!</h1>
           </button>
@@ -31,14 +49,24 @@ class App extends Component {
 
         <Map google={this.props.google} zoom={14}>
 
-          <Marker className="map" onClick={this.onMarkerClick}
-            name={'Current location'} />
-
-          <InfoWindow onClose={this.onInfoWindowClose}>
-
-          </InfoWindow>
+          {this.state.markers.map((marker, index) => (
+            <Marker
+              position={marker.position}
+              draggable={true}
+              onDragEnd={this.onMarkerDragEnd}
+              name={marker.name}
+            />
+            
+          ))}
+          {/* <InfoWindow
+            onClose={this.onInfoWindowClose}
+          >
+            <div>
+              <p>Click on the map or drag the marker to select location where the incident occurred</p>
+            </div>
+          </InfoWindow> */}
         </Map>
-      </div>
+      </div >
     );
   }
 }
