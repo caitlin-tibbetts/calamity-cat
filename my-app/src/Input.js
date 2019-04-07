@@ -66,7 +66,6 @@ render(
     <Input
       id={1}
       label="Where to?"
-      predicted="California"
       locked={false}
       active={false}
     />,
