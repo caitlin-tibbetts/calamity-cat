@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Input from './components/input';
+import Input from './Input';
 import cat from './cat.svg';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class App extends Component {
-
-  handle (event) 
-  {
-    this.setState({
-        data:event.target.value
-    })
-  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={cat} className="App-logo" alt="logo" />
           <h1>
             welcome to calamity cat
           </h1>
-          <input className="text-input" type="text" onChange={ this.handle.bind(this)}/>
+          <img src={cat} className="App-logo" alt="logo" />
+          <h2 className="App-subheader">
+            avoid cat-tastrophe
+          </h2>
+          <Input />
+          <button className="button">
+            GENERATE
+          </button>
         </header>
 
         <Map google={this.props.google} zoom={14}>
- 
-        <Marker className="map" onClick={this.onMarkerClick}
-                name={'Current location'} />
- 
-        <InfoWindow onClose={this.onInfoWindowClose}>
 
-        </InfoWindow>
-      </Map>
+          <Marker className="map" onClick={this.onMarkerClick}
+            name={'Current location'} />
+
+          <InfoWindow onClose={this.onInfoWindowClose}>
+
+          </InfoWindow>
+        </Map>
       </div>
     );
   }
